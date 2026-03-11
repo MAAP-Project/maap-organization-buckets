@@ -27,6 +27,7 @@ def apply_default_bucket_policy(
                     "s3:GetBucketLocation",
                     "s3:GetObject",
                     "s3:GetObjectTagging",
+                    "s3:GetObjectVersionTagging",
                     "s3:GetObjectAttributes",
                     "s3:ListBucket",
                     "s3:ListBucketVersions",
