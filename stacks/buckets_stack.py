@@ -22,7 +22,8 @@ class BucketStack(Stack):
         construct_id: str,
         *,
         org_name: str,
-        maap_api_role_arns: list[str] | None = None,
+        maap_api_role_arns: list[str],
+        logs_bucket: s3.Bucket,
         **kwargs: Any,
     ) -> None:
         super().__init__(scope, construct_id, **kwargs)
@@ -39,6 +40,8 @@ class BucketStack(Stack):
             versioned=True,
             block_public_access=s3.BlockPublicAccess.BLOCK_ALL,
             lifecycle_rules=lifecycle_rules,
+            server_access_logs_bucket=logs_bucket,
+            server_access_logs_prefix=f"{bucket_name}/",
         )
         Tags.of(bucket).add("Name", bucket_name)
 
