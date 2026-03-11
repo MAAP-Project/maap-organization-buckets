@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """CDK app entrypoint for organization bucket deployments."""
 
+import os
 from pathlib import Path
 
 import aws_cdk as cdk
@@ -29,7 +30,13 @@ def _stack_id(org_name: str) -> str:
 
 app = cdk.App()
 
-for organization in _organization_names():
+_organization = os.getenv("ORGANIZATION")
+organization_names = _organization_names()
+
+if _organization and _organization not in organization_names:
+    raise RuntimeError(f"Unknown organization: {_organization}")
+
+for organization in ([_organization] if _organization else organization_names):
     BucketStack(
         app,
         _stack_id(organization),

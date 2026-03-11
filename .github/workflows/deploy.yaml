@@ -7,6 +7,10 @@ permissions:
 on:
   workflow_dispatch:
     inputs:
+      organization:
+        description: "Optional organization folder name to deploy (e.g. geotrees). Leave blank to deploy all."
+        type: string
+        required: false
       aws-region:
         type: string
         required: false
@@ -17,6 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      ORGANIZATION: ${{ github.event.inputs.organization }}
       AWS_REGION: ${{ github.event.inputs.aws-region || vars.AWS_REGION }}
       MAAP_API_ROLE: ${{ secrets.MAAP_API_ROLE }}
       MAAP_API_USER_FOLDER_ROLE: ${{ secrets.MAAP_API_USER_FOLDER_ROLE }}
