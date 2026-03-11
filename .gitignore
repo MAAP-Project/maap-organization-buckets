@@ -1,0 +1,11 @@
+# Caches
+__pycache__/
+.ruff_cache/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+
+# CDK
+cdk.out/

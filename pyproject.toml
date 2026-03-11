@@ -1,0 +1,27 @@
+[project]
+name = "maap-organization-buckets"
+version = "0.1.0"
+description = "CDK stacks for MAAP organization buckets"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aws-cdk-lib==2.239.0",
+    "constructs>=10.0.0,<11.0.0",
+    "pydantic>=2.11.0,<3.0.0",
+    "pydantic-settings>=2.7.0,<3.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.5.1",
+    "ruff==0.15.2",
+]
+
+[tool.ruff]
+lint.select = ["E", "F", "I"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+
+[tool.uv]
+package = false
