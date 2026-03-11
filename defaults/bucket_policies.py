@@ -34,7 +34,6 @@ def apply_default_bucket_policy(
                     "s3:ListMultipartUploadParts",
                     "s3:ListBucketMultipartUploads",
                     "s3:PutObject",
-                    "s3:PutObjectAcl",
                     "s3:PutObjectTagging",
                     "s3:DeleteObject",
                     "s3:AbortMultipartUpload",
