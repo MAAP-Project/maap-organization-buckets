@@ -12,8 +12,8 @@ maap-organization-buckets/
 │   └── logs_stack.py
 ├── organizations/
 │   └── organization_name/
-│       ├── bucket_policies.py
-│       └── lifecycle_rules.py
+│       ├── bucket_policies.py (optional)
+│       └── lifecycle_rules.py (optional)
 ├── defaults/
 │   ├── lifecycle_rules.py
 │   └── bucket_policies.py
