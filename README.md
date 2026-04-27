@@ -9,6 +9,7 @@ maap-organization-buckets/
 ├── app.py
 ├── stacks/
 │   └── buckets_stack.py
+│   └── logs_stack.py
 ├── organizations/
 │   └── organization_name/
 │       ├── bucket_policies.py
@@ -26,6 +27,7 @@ maap-organization-buckets/
 
 - `app.py` discovers org names from folders under `organizations/` and creates one stack per org.
 - `stacks/buckets_stack.py` defines a single-org stack that deploys one bucket.
+- `stacks/logs_stack.py` defines a single bucket for storing server access logs of all org buckets.
 - Bucket naming convention is `nasa-maap-{org}`. {org} is derived from the org folder name.
 - `defaults/` stores baseline bucket policy and lifecycle rules.
 - `organizations/` stores custom policy statements and lifecycle policies per org.
@@ -57,7 +59,7 @@ Generated bucket names follow:
 3. Verify changes:
 
    ```bash
-   cdk synth
+   uv run cdk synth
    ```
 
 4. Run pre-commit hooks:
